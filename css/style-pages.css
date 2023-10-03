@@ -1,0 +1,367 @@
+@charset "utf-8";
+
+/* ----------common---------- */
+:root {
+  --main-color: #60c; /* メインカラー（紫）*/
+  --sub-color: #4cfcc2; /* サブカラー（緑） */
+}
+
+/* 共通スタイルの打消し */
+section {
+  margin: 0!important;
+}
+/* ----------news.html---------- */
+.news-h2{
+	/* ストローク文字のスタイリング */
+	font-size: 3rem;
+	font-weight: bold;
+ 	color: transparent;
+	-webkit-text-stroke: 0.04em var(--sub-color);
+}
+
+@media (min-width: 768px) {
+  .news-h2{
+    /* PC版ではストローク文字を大きく表示 */
+    font-size: 4.2rem;
+    font-weight: bold;
+     color: transparent;
+    -webkit-text-stroke: 0.04em var(--sub-color);
+  }
+}
+.news-container {
+  margin: 8px 16px 0;
+  padding-bottom: 16px;
+  background: rgba(255, 255, 255, .5);
+  /* moreボタンのための設定 */
+  position: relative;
+}
+
+.news-date {
+  margin: 0;
+  padding-left: 16px;
+  color: var(--main-color);
+  border-bottom: 1px solid #BBB;
+  font-family: 'Bruno Ace SC', sans-serif;
+  font-size: .8rem;
+}
+
+.news-container h3{
+  padding: 16px 0 0 16px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.news-container h3 a{
+  text-decoration: none;
+  color: #000;
+}
+
+.news-container h3 a:hover{
+  color: magenta;
+  transition: color .3s;
+}
+
+.contents {
+  display: block;
+  margin-top: 16px;
+}
+
+.thumbnail img {
+  width: 100%;
+  padding: 0 16px 8px;
+}
+
+.atc-abstract {
+  padding: 8px 24px;
+}
+
+.read-more {
+  background: var(--sub-color);
+  width: 40%;
+  margin: 0 16px 0 auto;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-family: 'Bruno Ace SC', sans-serif;
+  text-align: center;
+}
+
+.more-link {
+  text-decoration: none;
+  color: #000;
+  /* ボタン全体をリンクにするための記述 */
+  display: block;
+}
+
+.read-more:hover {
+  background: magenta;
+  transition: background .3s;
+}
+
+@media (max-width: 1079px) {
+  /* SP・PCでの表示調整のため便宜上max-widthを指定 */
+  .news-container + .news-container {
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .pc-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .news-container {
+    width: calc(50% - 32px);
+    padding-bottom: 0;
+  }
+  
+  .news-container:nth-child(n+3) {
+    margin-top: 32px;
+  }
+	.contents {
+    display: flex;
+    margin-top: 16px;
+  }
+  .contents div {
+    flex: 1;
+  }
+  
+  .thumbnail img {
+    width: 100%;
+    padding-left: 16px;
+  }
+  
+  .atc-abstract {
+    padding: 0 16px 8px;
+  }
+
+  .read-more {
+    width: 30%;
+    margin: 0 16px 0 auto;
+    /* 位置固定 */
+    position: absolute;
+    bottom: 16px;
+    right: 0;
+  }
+}
+
+/* ----------pages共通---------- */
+.news-page{
+  margin: 8px auto 0;
+  width: 70%;
+  background: rgba(255, 255, 255, .8);
+}
+
+.news-page h3{
+  padding: 16px 0 0 16px;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.news-page p{
+  font-size: 18px;
+  line-height: 2.2rem;
+}
+
+.news-page img {
+  width: 100%;
+  margin-top: 40px;
+  padding: 0 40px;
+}
+
+article div:not(.atc-contents) {
+  text-align: center;
+}
+
+.atc-contents{
+  padding: 40px;
+}
+
+.atc-contents h4{
+  background-color: #000;
+  color: #fff;
+  font-size: 2rem;
+  position: relative;
+  padding: 0.6em;
+}
+
+.atc-contents h4:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 30px;
+  border: 15px solid transparent;
+  border-top: 15px solid #000;
+  width: 0;
+  height: 0;
+}
+
+.atc-contents h5{
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 3px solid var(--sub-color);
+  margin: 32px 0;
+}
+
+.atc-info {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #bbb;
+  position: relative;
+}
+
+.atc-date {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--main-color);
+  font-family: 'Bruno Ace SC', sans-serif;
+  font-size: .8rem;
+}
+
+.atc-info div{
+  background: var(--sub-color);
+  border-radius: 16px;
+  padding: 0 16px;
+  line-height: 2rem;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+
+/* SP表示 !!!ここはPC基準で作成しmax-widthを指定しています!!! */
+@media (max-width: 768px) {
+	.news-page{
+    width: 90%;
+  }
+  
+  .news-page h3{
+    font-size: 2.2rem;
+  }
+  
+  .news-page p{
+    font-size: 18px;
+    line-height: 2rem;
+  }
+  
+  .atc-contents{
+    padding: 40px;
+  }
+  
+  .atc-contents h4{
+    font-size: 1.6rem;
+  }
+  
+  .atc-contents h5{
+    font-size: 1.4rem;
+  }
+  
+  .atc-info {
+    display: block;
+  }
+  
+  .atc-date {
+    margin: 0;
+    padding-left: 20px;
+    text-align: left;
+    font-size: .5rem;
+  }
+  
+  .atc-info div{
+    background: var(--sub-color);
+    border-radius: 16px;
+    width: 50%;
+    padding: 0 16px;
+    line-height: 2rem;
+    position: relative;
+  }
+}
+
+/* --- 本文装飾 --- */
+.page-marker {
+  background:linear-gradient(transparent 60%, rgba(76, 255, 194, .7) 60%);
+  font-weight: bold;
+}
+
+.page-bold {
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+/* --- ぱんくずリスト --- */
+.breadcrumb {
+  margin: 16px 0 0 16px;
+}
+
+.bc-nav {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bc-nav li {
+  color: #000;
+}
+
+.bc-nav li::after {
+  padding: 0 8px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f054";
+  color: var(--main-color);
+}
+
+.bc-nav li:last-child::after {
+  content: "";
+}
+
+.bc-nav li a {
+  color: #444;
+}
+
+.bc-nav li a:hover {
+  opacity: .8;
+}
+
+/* --- 下部ページビュアー --- */
+.page-viewer {
+  margin-top: 40px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: 'Bruno Ace SC', sans-serif;
+}
+
+.page-viewer button {
+  all: unset;
+  padding-left: 8px;
+  color: #fff;
+  font-size: 2rem;
+  font-family:'Courier New', Courier, monospace;
+}
+
+.page-viewer button:hover {
+  color: var(--sub-color);
+  cursor: pointer;
+  user-select: none;
+}
+
+.crt-num {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-left: 8px;
+}
+
+.prev-num {
+  font-size: 1.5rem;
+  padding-left: 8px;
+  opacity: .8;
+}
+
+.prev-num:hover {
+  cursor: pointer;
+  user-select: none;
+  color: var(--sub-color);
+  opacity: 1;
+}

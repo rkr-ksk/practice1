@@ -1,0 +1,503 @@
+@charset "utf-8";
+
+/* ページ全体に関わるcssの設定 */
+html *,
+::before,
+::after{
+    box-sizing: border-box;
+}
+
+html {
+  /* スムーズスクロール */
+  scroll-behavior: smooth;
+  /* 固定ヘッダ分のジャンプ位置調整 */
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+
+  width: 100%;
+	height: 100%;
+	background:linear-gradient(45deg, rgba(76,252,194,1) 0%, rgba(196,110,255,1) 52%, rgba(0,167,210,1) 100%);
+	background-size: 200% 200%;
+	animation: bggradient 6s ease infinite;
+}
+
+@keyframes bggradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ----------common---------- */
+:root {
+  --main-color: #60c; /* メインカラー（紫）*/
+  --sub-color: #4cfcc2; /* サブカラー（緑） */
+}
+
+main {
+  margin: 0;
+}
+
+section:nth-child(odd) {
+  margin-top: 32px;
+  padding: 16px;
+  background: rgba(255, 255, 255, .8);
+}
+
+section:nth-child(even) {
+  margin-top: 32px;
+  margin-left: auto;
+  padding: 16px;
+  background: rgba(255, 255, 255, .8);
+}
+
+section:nth-child(1) {
+  margin: 32px auto 0;
+  padding: 16px;
+  background: transparent;
+}
+
+h1 {
+  margin: auto 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 0;
+  letter-spacing: .1rem;
+  font-family: 'Bruno Ace SC', sans-serif;
+}
+
+.index-main h2{
+	/* ストローク文字のスタイリング */
+	font-size: 3rem;
+	font-weight: bold;
+ 	color: transparent;
+	-webkit-text-stroke: 0.04em rgba(0,0,0,1);
+}
+
+@media (min-width: 768px) {
+  .index-main h2{
+    /* PC版ではストローク文字を大きく表示 */
+    font-size: 4.2rem;
+    font-weight: bold;
+     color: transparent;
+    -webkit-text-stroke: 0.04em rgba(0,0,0,1);
+  }
+}
+
+h3 {
+  font-weight: normal;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* ----------ヘッダーメニュー---------- */
+header {
+  background: var(--sub-color);
+  margin: 0;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* スティッキーメニューの設定 */
+  position: sticky;
+  top: 0;
+  z-index: 99; /* opacityによりstacking contextが生成されるため。数値は仮指定 */
+}
+
+header a {
+	/* ロゴ画像のずれへの対処（あまりよくわかっていない） */
+	display: inline-block;
+}
+header img {
+	max-width: 80%;
+	vertical-align: middle;
+}
+
+/* ▼SP用ボタン */
+/* -----ここからcocofactory参照コード----- */
+.openbtn {
+  position: relative; /*ボタン内側の基点となるためrelativeを指定*/
+  z-index: 9999; /*最前面に表示*/
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+/* ボタン内側 */
+.openbtn span {
+  display: inline-block;
+  transition: all .4s; /* アニメーションの設定 */
+  position: absolute;
+}
+
+.openbtn span:nth-of-type(1),
+.openbtn span:nth-of-type(3) {
+  height: 2px;
+  background: #000;
+  width: 62%;
+  left: 10px;
+}
+
+.openbtn span:nth-of-type(1) {
+  top:13px; 
+}
+
+.openbtn span:nth-of-type(2) {
+  top:19px;
+  left:11px;
+  font-size:0.6rem;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.openbtn span:nth-of-type(3) {
+  top:36px;
+}
+
+/* activeクラスが付与されると×印に変形 */
+.openbtn.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+/* -----ここまで----- */
+
+@media (min-width: 768px) {
+  .openbtn{
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(20, 20, 20, 0.98);
+  text-align: center;
+  padding: 64px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+  z-index: 1;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay li:nth-child(odd) {
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.3s, transform .5s;
+}
+
+.overlay li:nth-child(even) {
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.3s, transform .5s;
+}
+
+.overlay.show li{
+  opacity: 1;
+  transform: none;
+}
+
+.overlay a{
+  text-decoration: none;
+  font-family: 'Bruno Ace SC', sans-serif;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.overlay a:hover{
+  color: magenta;
+}
+
+.overlay.show li:nth-child(1){
+  transition-delay: .1s;
+}
+
+.overlay.show li:nth-child(2){
+  transition-delay: .2s;
+}
+
+.overlay.show li:nth-child(3){
+  transition-delay: .3s;
+}
+
+.overlay.show li:nth-child(4){
+  transition-delay: .4s;
+}
+
+.overlay.show li:nth-child(5){
+  transition-delay: .6s;
+}
+
+/* ▼PC用メニュー */
+.header-nav {
+  display: none; /* モバイル用表示の際は横メニュー非表示 */
+}
+
+@media (min-width: 768px) {
+  header {
+    display: block;
+   }
+
+  .header-nav{
+    display: flex;
+    flex-direction: row;
+    gap: 10px 20px;
+    justify-content: flex-end;
+    margin: 0;
+    list-style: none;
+  }
+
+  header a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 'Bruno Ace SC', sans-serif;
+  }
+
+  header a:hover {
+    color: magenta;
+  }
+}
+
+/* ----------フッターメニュー---------- */
+footer {
+  background: var(--sub-color);
+  margin-top: 48px;
+}
+
+footer img {
+	max-width: 60%;
+	vertical-align: middle;
+}
+
+footer ul {
+	list-style: none;
+	padding-inline-start: 0;
+}
+
+footer a {
+	text-decoration: none;
+	color: #222;
+}
+
+footer a:hover{
+	color: magenta;
+  font-weight: bold;
+}
+
+.footer-content {
+  display: flex;
+}
+
+.footer-content div{
+  width: 100%;
+}
+
+.footer-left {
+  margin: auto;
+	text-align: center;
+}
+
+.footer-right {
+	font-size: .85rem;
+	color: #222;
+}
+
+.copyright {
+  text-align: center;
+  color: #333;
+}
+
+.footer-pc {
+	display: none;
+}
+
+.footer-sp {
+	display: flex;
+	justify-content: center;
+}
+
+/* PCでは３カラム表示 */
+@media (min-width: 768px) {
+  footer img {
+		width: 150px;
+	}
+	
+	.footer-left {
+  	/* margin: 0 auto; */
+  	padding-left: 0;
+		text-align: center;
+		flex: 1;
+	}
+	
+	.footer-right {
+		flex: 1;
+		text-align: center;
+	}
+
+	.footer-pc {
+		display: flex;
+		flex: 1;
+		margin: auto;
+		justify-content: center;
+	}
+	
+	.footer-pc div {
+		max-width: 50px;
+		text-align: center;
+	}
+	
+	.footer-sp {
+		display: none;
+	}
+}
+	
+/* ---共通モジュール--- */
+.news-text {
+  overflow-wrap: break-word;
+}
+
+.viewmore {
+  width: 240px;
+  border: 2px solid #000;
+  margin: 24px auto 8px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Bruno Ace SC', sans-serif;
+}
+
+.viewmore a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  line-height: 2.5rem;
+}
+
+.viewmore a:hover {
+  color: magenta;
+}
+
+.viewmore:hover {
+  border: 2px solid var(--sub-color);
+  box-shadow: var(--sub-color) 1px 0 10px;
+}
+
+.viewmore:active {
+  transform: translate3d(0, 3px, 0);
+}
+
+.sns {
+  display: flex;
+  justify-content: center;
+}
+
+.sns div {
+  margin: 0 16px;
+}
+
+.sns div a {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: var(--main-color);
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 60px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sns div a:hover {
+  background: var(--sub-color);
+}
+
+/* PCフッターでの表示 */
+.footer-pc div a {
+	
+	width: 40px;
+	height: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	text-align: center;
+	color: #222;
+	}
+
+.footer-pc div a:hover {
+	opacity: 1;
+  color: var(--main-color);
+}
+
+/* SPフッターでの表示 */
+.footer-sp div a {
+	display: block;
+	width: 40px;
+	height: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	text-align: center;
+	color: #222;
+	}
+
+.footer-sp div a:hover {
+	opacity: 1;
+  color: var(--main-color);
+}
+
+@keyframes fadeInAnime{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

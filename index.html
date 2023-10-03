@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>practice LP2</title>
+  <link rel="stylesheet" href="css/style-common.css">
+  <link rel="stylesheet" href="css/style-main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+
+  <link href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" rel="stylesheet">
+  <link rel="icon" href="img/favicon.png">
+</head>
+
+<body>
+  <header>
+    <div class="header-ctn">
+      <h1><a href="index.html"><img src="img/logo.gif" alt="ロゴ"></a>
+        <h1>
+    </div>
+
+    <nav>
+      <ul class="header-nav">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="news.html">NEWS</a></li>
+        <li><a href="#games">GAMES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <div class="openbtn" id="menu-button">
+      <span></span><span>Menu</span><span></span>
+    </div>
+    </div>
+
+  </header>
+
+  <div class="overlay">
+    <nav>
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="news.html">NEWS</a></li>
+        <li><a href="#games">GAMES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li class="sns">
+          <div><a href="#"><i class="fab fa-twitter"></i></a></div>
+          <div><a href="#"><i class="fab fa-instagram"></i></a></div>
+          <div><a href="#"><i class="fab fa-youtube"></i></a></div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="index-main">
+    <section class="top-ctn">
+      <div class="top-main">
+        <img src="img/pic1.png" alt="">
+        <p>ここにトップコンテンツを表示</p>
+      </div>
+    </section>
+
+    <section class="about-ctn" id="about">
+      <h2>ABOUT</h2>
+      <div class="about-main">
+        <h3>ディベロッパの説明1</h3>
+        <p><img src="img/pic1.png" alt=""></p>
+        <p class="description">
+          ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。
+        </p>
+      </div>
+      <div class="about-sub">
+        <h3>ディベロッパの説明2</h3>
+        <p><img src="img/icon.png" alt=""></p>
+        <p class="description">
+          ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。
+        </p>
+      </div>
+    </section>
+
+    <section class="news-ctn">
+      <h2>NEWS</h2>
+      <div class="news-main">
+        <p class="news-date">yyyy/mm/dd　</p>
+        <p class="news-text">XXXXXに記事 - <span class="news-span">いろはにほへとちりぬるをわかよたれそつねならむうゐのおくやまけふこえてあさきゆめみし</span> を更新
+        </p>
+      </div>
+      <div class="news-main">
+        <p class="news-date">yyyy/mm/dd　</p>
+        <p class="news-text">XXXXXに記事 - <span class="news-span">いろはにほへとちりぬるをわかよたれそつねならむうゐのおくやまけふこえてあさきゆめみし</span> を更新
+        </p>
+      </div>
+      <div class="news-main">
+        <p class="news-date">yyyy/mm/dd　</p>
+        <p class="news-text">サイト作成</p>
+      </div>
+      <div class="viewmore"><a href="news.html">VIEW MORE <i class="fa-solid fa-chevron-right"></i></a>
+        <div>
+    </section>
+
+    <section class="games-ctn" id="games">
+      <h2>GAMES</h2>
+      <div class="game-content">
+        <p class="game-type">リリース済みタイトル</p>
+        <div class="thumbnail">
+          <ul class="game-thumbnails">
+            <li><a href="#"><img src="img/pic1.png" alt="タイトル1"></a></li>
+            <li><a href="#"><img src="img/pic2.png" alt="タイトル2"></a></li>
+            <li><a href="#"><img src="img/pic3.png" alt="タイトル3"></a></li>
+          </ul>
+
+          <button id="prev">&laquo;</button>
+          <button id="next">&raquo;</button>
+        </div>
+
+        <!-- jsでタイトルを切り替え・aタグ生成 -->
+        <p class="games-text"><!-- jsで説明を切り替え -->caption</p>
+        <nav class="carousel-dots"><!-- jsでボタンを生成 --></nav>
+      </div>
+
+      <div class="game-content">
+        <p class="game-type">開発中タイトル</p>
+        <ul class="game-thumbnails">
+          <li><a href="#"><img src="img/pic1.png" alt="タイトル1"></a></li>
+        </ul>
+        <a href="#" class="games-title">タイトル2</a>
+        <p class="games-text">
+          ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。
+        </p>
+      </div>
+      <div class="viewmore"><a href="games.html">VIEW MORE <i class="fa-solid fa-chevron-right"></i></a>
+    </section>
+
+    <section class="links-ctn">
+      <h2>LINKS</h2>
+
+      <div class="top-wrapper links">
+        <div><a href="#">blog</a></div>
+        <div><a href="#">contact</a></div>
+      </div>
+
+      <div class="grid-wrapper links">
+        <div><a href="#"><i class="fab fa-steam"></i> steam</a></div>
+        <div><a href="#"><i class="fab fa-itch-io"></i> itch.io</a></div>
+        <div><a href="#"><i class="fab fa-twitter"></i> twitter</a></div>
+        <div><a href="#"><i class="fab fa-instagram"></i> instagram</a></div>
+        <div><a href="#"><i class="fab fa-youtube"></i> youtube</a></div>
+        <div><a href="#"><i class="far fa-eye"></i> site</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-pc">
+        <div><a href="#"><i class="fab fa-twitter"></i></a></div>
+        <div><a href="#"><i class="fab fa-instagram"></i></a></div>
+        <div><a href="#"><i class="fab fa-youtube"></i></a></div>
+      </div>
+      <div class="footer-left">
+        <img src="img/logo.gif" alt="ロゴ">
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><a href="#">このサイトについて</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-sp">
+      <div><a href="#"><i class="fab fa-twitter"></i></a></div>
+      <div><a href="#"><i class="fab fa-instagram"></i></a></div>
+      <div><a href="#"><i class="fab fa-youtube"></i></a></div>
+    </div>
+    <div class="copyright">
+      <small>©2023 ディベロッパ名</small>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

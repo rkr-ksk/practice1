@@ -1,0 +1,477 @@
+@charset "utf-8";
+
+/* ページ全体に関わるcssの設定 */
+html *,
+::before,
+::after{
+    box-sizing: border-box;
+}
+
+/* スムーズスクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #93f;
+}
+
+/* ----------common---------- */
+:root {
+  --main-color: #60c; /* メインカラー（紫）*/
+  --sub-color: #4cfcc2; /* サブカラー（緑） */
+}
+
+main {
+  margin: 0;
+}
+
+section {
+  margin: 0 auto;
+}
+
+section + section {
+  margin-top: 32px; 
+}
+
+.news-ctn {
+  
+}
+
+.about-ctn {
+  
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 24px;
+  margin: auto 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+h3 {
+  font-weight: normal;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* ----------ヘッダーメニュー---------- */
+header {
+  background: var(--sub-color);
+  margin: 0;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  /* スティッキーメニューの設定 */
+  position: sticky;
+  top: 0;
+  z-index: 99; /* opacityによりstacking contextが生成されるため。数値は仮指定 */
+}
+
+/* ▼SP用ボタン */
+/* -----ここからcocofactory参照コード----- */
+.openbtn {
+  position: relative; /*ボタン内側の基点となるためrelativeを指定*/
+  z-index: 9999; /*最前面に表示*/
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+/* ボタン内側 */
+.openbtn span {
+  display: inline-block;
+  transition: all .4s; /* アニメーションの設定 */
+  position: absolute;
+}
+
+.openbtn span:nth-of-type(1),
+.openbtn span:nth-of-type(3) {
+  height: 2px;
+  background: #000;
+  width: 62%;
+  left: 10px;
+}
+
+.openbtn span:nth-of-type(1) {
+  top:13px; 
+}
+
+.openbtn span:nth-of-type(2) {
+  top:19px;
+  left:11px;
+  font-size:0.6rem;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.openbtn span:nth-of-type(3) {
+  top:36px;
+}
+
+/* activeクラスが付与されると×印に変形 */
+.openbtn.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+/* -----ここまで----- */
+
+@media (min-width: 768px) {
+  .openbtn{
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(20, 20, 20, 0.98);
+  text-align: center;
+  padding: 64px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+  z-index: 1;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay li {
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.overlay.show li{
+  opacity: 1;
+  transform: none;
+}
+
+.overlay a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.overlay a:hover{
+  color: magenta;
+}
+
+.overlay.show li:nth-child(1){
+  transition-delay: .1s;
+}
+
+.overlay.show li:nth-child(2){
+  transition-delay: .2s;
+}
+
+.overlay.show li:nth-child(3){
+  transition-delay: .3s;
+}
+
+.overlay.show li:nth-child(4){
+  transition-delay: .4s;
+}
+
+.overlay.show li:nth-child(5){
+  transition-delay: .5s;
+}
+
+/* ▼PC用メニュー */
+.header-nav {
+  display: none; /* モバイル用表示の際は横メニュー非表示 */
+}
+
+@media (min-width: 768px) {
+  header {
+    display: block;
+   }
+
+  .header-nav{
+    display: flex;
+    flex-direction: row;
+    gap: 10px 20px;
+    justify-content: flex-end;
+    margin: 0;
+    list-style: none;
+  }
+
+  header a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+
+  header a:hover {
+    color: magenta;
+  }
+}
+
+/* ----------メインコンテンツ----------*/
+.background-white {
+  width: 70%;
+  height: 1500px; /* 仮指定 */
+  margin: 0 auto;
+  background: #fff;
+  opacity: .8;
+}
+
+/* ---トップコンテンツ--- */
+.top-ctn {
+  width: 80%;
+  height: 300px; /* 仮指定 */
+  background: #fff;
+  padding: 8px 8px 16px;
+}
+
+/* ---NEWS--- */
+.news-ctn {
+  width: 70%;
+  background: rgba(255, 255, 255, .3);
+  padding: 8px;
+  /* ふわっと出現 */
+  animation-name:fadeInAnime;
+  animation-duration:1s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+.news-date {
+  font-size: .8rem;
+}
+
+/* ---ABOUT--- */
+.about-ctn {
+  width: 70%;
+  background: rgba(255, 255, 255, .3);
+  padding: 8px;
+  /* ふわっと出現 */
+  animation-name:fadeInAnime;
+  animation-duration: 1s;
+  animation-delay: .5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+.about-ctn p {
+  text-align: center;
+}
+
+/* ---GAMES--- */
+.games-ctn {
+  width: 80%;
+  background: rgba(255, 255, 255, .3);
+  padding: 8px;
+  text-align: center;
+}
+
+.games-ctn h2 {
+  text-align: left;
+}
+
+.thumbnail {
+  overflow: hidden;
+  position: relative;
+}
+
+.game-type {
+  font-weight: bold;
+}
+
+/* カルーセルアイテム */
+#prev, #next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: var(--sub-color);
+  color: #000;
+  font-size: 24px;
+  padding: 0 8px 4px;
+  cursor: pointer;
+}
+
+#prev { left: 0; }
+
+#prev:hover { opacity: .8; }
+
+#next { right: 0; }
+
+#next:hover { opacity: .8; }
+
+.hidden {
+  display: none;
+}
+
+.carousel-dots {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.carousel-dots button {
+  border: none;
+  width: 16px;
+  height: 16px;
+  background: lavender;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel-dots button:hover {
+  opacity: .8;
+}
+
+.carousel-dots button + button {
+  margin-left: 8px;
+}
+
+.carousel-dots .current {
+  background: magenta;
+}
+
+.game-content + .game-content {
+  margin-top: 40px; /* タイトル間にマージンを設定 */
+}
+
+.game-thumbnails {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  transition: transform .3s;
+}
+
+.game-thumbnails li {
+  height: 100%;
+  min-width: 100%;
+}
+
+.game-thumbnails li img {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  .game-thumbnails li img{
+    width: 50%;
+  }
+}
+
+/* ----------フッターメニュー---------- */
+footer {
+  height: 125px; /* 仮指定 */
+    background: var(--sub-color);
+  margin-top: 48px;
+}
+
+.footer-content {
+  display: flex;
+}
+
+.footer-content div {
+  width: 50%;
+}
+
+.copyright {
+  text-align: center;
+  color: #333;
+}
+
+/* ---共通モジュール--- */
+.news-text {
+  overflow-wrap: break-word;
+}
+
+.viewmore {
+  width: 152px;
+  border: 2px solid #000;
+  margin: 24px auto 8px;
+  padding: 4px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.sns {
+  display: flex;
+  justify-content: center;
+}
+
+.sns div {
+  margin: 0 16px;
+}
+
+.sns div a {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: var(--main-color);
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 60px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sns div a:hover {
+  background: var(--sub-color);
+}
+
+@keyframes fadeInAnime{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ----------news.html---------- */
+.news-article {
+  display: flex;
+}
+
+.atc-thumbnail img {
+  width: 200px;  /* 仮指定 */
+  height: 100px;  /* 仮指定 */
+}
