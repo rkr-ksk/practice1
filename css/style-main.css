@@ -123,6 +123,18 @@
 	overflow-wrap: break-word;
 }
 
+.news-text a{
+  font-weight: bold;
+  color: var(--point-color);
+  text-decoration: none;
+}
+
+.news-text span a{
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
 .news-span {
 	text-decoration: underline var(--sub-color) 2px;
 }

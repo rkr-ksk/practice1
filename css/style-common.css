@@ -125,6 +125,9 @@ header a {
 header img {
 	max-width: 80%;
 	vertical-align: middle;
+  position: absolute;
+  top: 0;
+  left: 8px;
 }
 
 /* ▼SP用ボタン */
@@ -270,7 +273,18 @@ header img {
 }
 
 .overlay.show li:nth-child(5){
-  transition-delay: .6s;
+  transition-delay: .5s;
+}
+
+.overlay.show li:nth-child(6){
+  transition-delay: .7s;
+}
+
+.this-page {
+  font-family: 'Bruno Ace SC', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #777;
 }
 
 /* ▼PC用メニュー */
@@ -319,6 +333,7 @@ footer img {
 footer ul {
 	list-style: none;
 	padding-inline-start: 0;
+  margin-top: 20px;
 }
 
 footer a {
@@ -347,6 +362,7 @@ footer a:hover{
 .footer-right {
 	font-size: .85rem;
 	color: #222;
+  text-align: center;
 }
 
 .copyright {
@@ -500,4 +516,20 @@ footer a:hover{
   to {
     opacity: 1;
   }
+}
+
+.triangle {
+  margin: 40px auto;
+  background: var(--sub-color);
+  height: calc(tan(60deg) * 60px / 2);
+  width: 60px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.deco-line {
+  /* border: 1px solid var(--sub-color);
+  width: 35%; */
+  color: var(--sub-color);
+  text-align: center;
+  margin: 16px auto;
 }

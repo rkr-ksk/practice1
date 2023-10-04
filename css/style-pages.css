@@ -158,7 +158,7 @@ section {
   font-size: 2.5rem;
 }
 
-.news-page p{
+.news-page p:not(.atc-date){
   font-size: 18px;
   line-height: 2.2rem;
 }
@@ -211,11 +211,10 @@ article div:not(.atc-contents) {
 }
 
 .atc-date {
-  margin: 0;
+  margin: 0 0 8px 0;
   padding-left: 20px;
   color: var(--main-color);
   font-family: 'Bruno Ace SC', sans-serif;
-  font-size: .8rem;
 }
 
 .atc-info div{
@@ -238,8 +237,7 @@ article div:not(.atc-contents) {
     font-size: 2.2rem;
   }
   
-  .news-page p{
-    font-size: 18px;
+  .news-page p:not(.atc-date){
     line-height: 2rem;
   }
   
@@ -263,16 +261,18 @@ article div:not(.atc-contents) {
     margin: 0;
     padding-left: 20px;
     text-align: left;
-    font-size: .5rem;
+    font-size: 12px;
+    line-height: 1rem;
   }
   
   .atc-info div{
     background: var(--sub-color);
     border-radius: 16px;
-    width: 50%;
-    padding: 0 16px;
-    line-height: 2rem;
+    width: fit-content;
+    margin: 16px 0 0 24px;
+    line-height: 1.5rem;
     position: relative;
+    font-size: 14px;
   }
 }
 
@@ -285,6 +285,144 @@ article div:not(.atc-contents) {
 .page-bold {
   font-weight: bold;
   color: var(--main-color);
+}
+
+/* --- ページシェア --- */
+.sns-share {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  gap: 8px;
+  margin: 32px auto;
+  font-size: 14px;
+}
+
+.sns-share div {
+  border-radius: 4px;
+  padding: 0 16px;
+}
+
+.sns-share div a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.sns-share div:nth-child(1) {
+  background: #1d9bf0;
+}
+.sns-share div:nth-child(2) {
+  background: #1877f2;
+}
+.sns-share div:nth-child(3) {
+  background: #06c755;
+}
+
+@media (min-width: 768px) {
+  .sns-share {
+    font-size: 18px;
+    gap: 16px;
+  }
+}
+
+/* --- 関連記事 --- */
+.relation-pages {
+  margin: 32px auto 0;
+  width: 90%;
+}
+
+.relation-pages h3{
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.r-pages-view {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.r-pages-view a{
+  width: calc(50% - 16px);
+  text-decoration: none;
+  color: #000;
+}
+
+.r-page {
+  background: rgba(255, 255, 255, .8);
+  /* width: calc(50% - 16px); */
+  width: 100%;
+  padding: 16px;
+  position: relative;
+}
+
+.r-page:hover {
+  background: rgba(241, 255, 168, 1);
+}
+
+.rp-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.r-page div:not(.rp-more) {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  align-items: flex-start;
+}
+
+.r-page img {
+  width: calc(50% - 48px);
+  height: auto;
+}
+
+.rp-more {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  background: var(--sub-color);
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+}
+
+/* SP表示 !!!ここはPC基準で作成しmax-widthを指定しています!!! */
+@media (max-width: 768px) {
+  .r-pages-view {
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .r-pages-view a{
+    width: calc(50% - 8px);
+  }
+
+  .rp-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .r-page div {
+    display: block;
+  }
+
+  .rp-abstract {
+    display: none;
+  }
+
+  .r-page img {
+    width: 100%;
+    height: auto;
+  }
+
+  .rp-more {
+    bottom: 8px;
+    right: 4px;
+  }
 }
 
 /* --- ぱんくずリスト --- */
@@ -365,3 +503,4 @@ article div:not(.atc-contents) {
   color: var(--sub-color);
   opacity: 1;
 }
+
