@@ -299,6 +299,10 @@ input[type="checkbox"]:checked + label {
 
 @media (max-width: 768px) {
   /* SP版 */
+  .game-ctg {
+    margin: 0 16px;
+    text-align: center;
+  }
   .label {
     margin-right: 8px;
   }
@@ -312,9 +316,9 @@ input[type="checkbox"]:checked + label {
   cursor: pointer;
   color: #fff;
   font-size: 24px;
+  margin: 8px 0;
   padding: 10px 0;
   transition: all .3s;
-  margin-top: -4px;
 }
 
 [type="submit"]:hover {
