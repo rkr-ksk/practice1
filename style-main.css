@@ -1,0 +1,459 @@
+@charset "utf-8";
+
+/* ----------common---------- */
+:root {
+  --main-color: #60c; /* メインカラー（紫）*/
+  --sub-color: #4cfcc2; /* サブカラー（緑） */
+	--point-color: #0795f3; /* ポイントカラー（青） */
+}
+
+/* ---トップコンテンツ--- */
+.top-ctn {
+  /* ふわっと出現 */
+  animation-name:fadeInAnime;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+.top-main {
+	text-align: center;
+}
+
+.top-main img {
+	width: 100%;
+	height: auto;
+}
+
+@media (min-width: 768px) {
+  .top-ctn {
+    width: 80%;
+  }
+  .top-main img {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+/* ---ABOUT--- */
+.about-ctn {
+  /* ふわっと出現 */
+  animation-name:fadeInAnime;
+  animation-duration: 2s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+.about-main {
+  text-align: center;
+	margin: 16px auto 0;
+}
+
+.about-main h3{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.about-main img {
+	width: 80%;
+	height: auto;
+	margin-top: 8px;
+}
+
+.about-sub {
+	text-align: center;
+	margin: 8px auto 0;
+	padding: 24px 0;
+}
+
+.about-sub h3{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.about-sub img {
+	width: 120px;
+	height: auto;
+	border-radius: 50%;
+	margin-top: 16px;
+}
+
+.description {
+	margin: 16px auto 0;
+	padding: 0 24px;
+  width: 100%;
+}
+
+.about-main .description {
+	margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .about-main {
+    margin-top: 8px;
+  }
+  .about-main img {
+    width: 60%;
+    margin-top: 24px;
+  }
+  .description {
+    width: 60%;
+    font-size: 18px;
+  }
+}
+
+/* ---NEWS--- */
+.news-ctn {
+  width: 90%;
+}
+
+.news-main {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 16px;
+}
+
+.news-date {
+  font-size: .8rem;
+	font-weight: bold;
+	min-width: 104px; /* 日付が2行になるの防止 */
+	color: magenta;
+	vertical-align: middle;
+}
+
+.news-text {
+  overflow: hidden;
+	overflow-wrap: break-word;
+}
+
+.news-text a{
+  font-weight: bold;
+  color: var(--point-color);
+  text-decoration: none;
+}
+
+.news-text span a{
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.news-span {
+	text-decoration: underline var(--sub-color) 2px;
+}
+
+.news-main + .news-main {
+	/* 見出し間にマージンを設定 */
+	margin-top: 24px;	
+}
+
+/* ---GAMES--- */
+.games-ctn {
+  width: 90%;
+  text-align: center;
+}
+
+.games-ctn h2 {
+  text-align: left;
+}
+
+.thumbnail {
+  overflow: hidden;
+  position: relative;
+}
+
+.game-type {
+  font-weight: bold;
+	margin-top: 16px;
+  /* color: var(--sub-color); */
+}
+
+.games-title {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+	padding: 0 16px;
+}
+
+.games-title:hover{
+  color: var(--point-color);
+	transition: color .2s;
+}
+
+.games-text {
+  width: 100%;
+  margin: 16px auto 0;
+}
+
+@media (min-width: 768px) {
+  .games-text {
+    width: 70%;
+  }
+}
+
+/* カルーセルアイテム */
+#prev, #next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: var(--sub-color);
+  color: #000;
+  font-size: 24px;
+  padding: 0 8px 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#prev { left: 0; }
+
+#prev:hover { opacity: .8; }
+
+#next { right: 0; }
+
+#next:hover { opacity: .8; }
+
+@media (min-width: 768px) {
+  #prev {
+    left: 20%;
+  }
+  #next {
+    right: 20%;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.carousel-dots {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.carousel-dots button {
+  border: none;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel-dots button:hover {
+  opacity: .8;
+}
+
+.carousel-dots button + button {
+  margin-left: 8px;
+}
+
+.carousel-dots .current {
+  background: magenta;
+}
+
+.game-content + .game-content {
+  margin-top: 40px; /* タイトル間にマージンを設定 */
+}
+
+.game-thumbnails {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  transition: transform .3s;
+}
+
+.game-thumbnails li {
+  height: 100%;
+  min-width: 100%;
+}
+
+.game-thumbnails li img {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .game-thumbnails li img{
+    width: 50%;
+  }
+}
+
+/* ---link--- */
+.links-ctn {
+  width: 90%;
+}
+
+.links {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.links div{
+  width: 40%;
+  height: 2rem;
+  text-align: center;
+  font-family: 'Bruno Ace SC', sans-serif;
+  font-size: .9rem;
+  background: var(--main-color);
+  border-radius: 4px;
+  position: relative;
+}
+
+.grid-wrapper {
+  margin-top: 32px;
+}
+
+.top-wrapper div{
+  margin-top: 16px;
+  background: var(--point-color);
+}
+
+.grid-wrapper div{
+  background: var(--sub-color);
+}
+
+.links a {
+  text-decoration: none;
+  color: #000;
+  line-height: 2rem;
+  /* 以下、div要素全体を（aタグで囲まずに）リンクにするための記述 */
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.links div:hover {
+  background: magenta;
+  transition: background .3s;
+}
+
+.links div:active {
+  transform:translateY(4px);
+}
+
+.links a:hover {
+  color: #fff;
+  transition: color .3s;
+}
+
+@media (min-width: 768px) {
+  .links div{
+    width: 30%;
+    font-size: 1.2rem;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 20% auto;
+  padding: 24px;
+  width: 80%;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 16px;
+}
+
+.modal-content p {
+  /* いいかんじに改行を考えるための記述 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.modal-content div {
+  background: var(--main-color);
+  color: #fff;
+  width: fit-content;
+  margin: 24px auto 0;
+  padding: 8px 32px;
+  border-radius: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.modal-content div:hover {
+  opacity: .8;
+}
+
+.modal-content div:active {
+  transform: translateY(2px);
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+  font-size: 1.5rem;
+  padding: 40px;
+  }
+  .modal-content div {
+    margin: 40px auto 0;
+  }
+}
+
+#del-cookie {
+  all: unset;
+  width: fit-content;
+  background: var(--sub-color);
+  border-radius: 16px;
+  font-size: .8rem;
+  margin: 4px 0 0 4px;
+  padding: 0 8px;
+  cursor: pointer;
+  user-select: none;
+  /* 吹き出しのための記述 */
+  position   : relative;   
+}
+
+#del-cookie:hover {
+  opacity: .8;
+}
+
+#del-cookie:active {
+  transform: translateY(2px);
+}
+
+#del-cookie:hover .balloon {
+  display: inline;
+}
+
+.balloon {
+  position: absolute;
+  display: none;
+  padding: 2px;
+  background-color: rgba(255, 255, 255, .8);
+  width: 360px;
+  left: 16px;
+  top: 100%;
+  margin-top: 12px;
+  padding: 0 8px;
+  font-size: .5rem;
+}
+.balloon:after{
+  border-bottom: 12px solid rgba(255, 255, 255, .8);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent; 
+  content: "";
+  position: absolute;
+  top: -12px;
+  left : 5%;
+}
