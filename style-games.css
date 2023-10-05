@@ -1,0 +1,328 @@
+@charset "utf-8";
+
+/* ----------common---------- */
+:root {
+  --main-color: #60c; /* メインカラー（紫）*/
+  --sub-color: #4cfcc2; /* サブカラー（緑） */
+  --point-color: #0795f3; /* ポイントカラー（青） */
+}
+
+/* 共通スタイルの打消し */
+section {
+  margin: 0!important;
+}
+/* ----------games.html---------- */
+.games-h2{
+	/* ストローク文字のスタイリング */
+	font-size: 3rem;
+	font-weight: bold;
+ 	color: transparent;
+	-webkit-text-stroke: 0.04em var(--sub-color);
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .games-h2{
+    /* PC版ではストローク文字を大きく表示 */
+    font-size: 4.2rem;
+    font-weight: bold;
+     color: transparent;
+    -webkit-text-stroke: 0.04em var(--sub-color);
+  }
+}
+
+.game-ctg {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.games-container {
+  margin: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.game {
+  width: calc((100% / 3) - 16px);
+  padding: 16px;
+  background: rgba(255, 255, 255, .8);
+}
+
+.game h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.game h4, .game p {
+  margin: 16px auto;
+  max-width: 100%;
+}
+
+.game ul {
+  list-style: none;
+  padding-inline-start: 0;
+  margin: 16px auto;
+  max-width: 100%;
+}
+
+.game-thumbnail {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.game-thumbnail img {
+  max-width: 100%;
+  height: auto;
+}
+
+.sp-site {
+  width: fit-content;
+  margin: 32px auto 0;
+  padding: 8px 24px;
+  background: var(--sub-color);
+  border-radius: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sp-site:hover {
+  background: magenta;
+  transition: background .3s;
+}
+
+.sp-site a{
+  text-decoration: none;
+  color: #000;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.dt-site {
+  width: fit-content;
+  margin: 32px auto 0;
+  padding: 8px 24px;
+  background: #99ffdd;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.dt-site:hover {
+  background: magenta;
+  transition: background .3s;
+}
+
+.dt-site a{
+  text-decoration: none;
+  color: #000;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.prog-container {
+  margin: 0 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, .8);
+  display: flex;
+  gap: 16px;
+}
+
+.prog-game {
+  margin: 0;
+  padding: 0 16px;
+}
+
+.prog-game h3 {
+  text-align: left;
+  font-weight: bold;
+}
+
+.prog-game p {
+  margin: 16px 0;
+}
+
+.prog-game ul {
+  margin: 0;
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.prog-thumbnail img {
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* SP表示 !!!ここはPC基準で作成しmax-widthを指定しています!!! */
+@media (max-width: 1080px) {
+  .game-ctg {
+    font-size: 2rem;
+    margin-left: 0;
+  }
+  .games-container {
+    display: block;
+    margin: 0;
+  }
+  .game {
+    width: 100%;
+    padding: 16px;
+  }
+  .game:nth-child(n+2){
+    margin-top: 24px;
+  }
+  .prog-container {
+    margin: 0;
+    background: rgba(255, 255, 255, .8);
+    display: block;
+  }
+  .prog-thumbnail {
+    text-align: center;
+    margin-top: 8px;
+  }
+  .prog-game {
+    margin-top: 8px;
+  } 
+}
+
+.links {
+  margin: 0 0 0 16px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.link-container {
+  margin: 16px 16px 0;
+  display: flex;
+  gap: 16px;
+}
+
+.game-link{
+  border-radius: 24px;
+  padding: 8px 40px;
+  font-size: 24px;
+}
+
+.game-link a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.game-link:nth-child(1) {
+  background: #254283;
+}
+
+.game-link:nth-child(2) {
+  background: #dc2c49;
+}
+
+@media (max-width: 768px) {
+  .link-container {
+    justify-content: center;
+  }
+  .game-link{
+    padding: 8px 24px;
+    font-size: 20px;
+  }
+}
+
+/* ----------contact.html---------- */
+.contact-container {
+  margin: 0 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, .8);
+  font-size: 18px;
+}
+
+form {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.ct-kubun {
+  margin-bottom: 8px;
+}
+.ct-detail{
+  margin-top: 24px;
+}
+
+.feedback-input {
+  font-size: 18px;
+  border-radius: 4px;
+  line-height: 24px;
+  background-color: transparent;
+  border: 2px solid var(--main-color);
+  transition: all .3s;
+  padding: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.feedback-input:focus {
+  border: 2px solid magenta;
+}
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize: vertical;
+}
+
+[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label {
+  background: var(--main-color);
+  color: #ffffff;
+}
+
+.label {
+  margin-right: 16px;
+  padding: 4px 8px;
+  border: 2px solid var(--main-color);
+  border-radius: 8px;
+  user-select: none;
+}
+
+.label:hover {
+  background-color: rgb(171, 145, 243);
+}
+
+@media (max-width: 768px) {
+  /* SP版 */
+  .game-ctg {
+    margin: 0 16px;
+    text-align: center;
+  }
+  .label {
+    margin-right: 8px;
+  }
+}
+
+[type="submit"] {
+  width: 100%;
+  background: var(--main-color);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  margin: 8px 0;
+  padding: 10px 0;
+  transition: all .3s;
+}
+
+[type="submit"]:hover {
+  background: magenta;
+}
+
