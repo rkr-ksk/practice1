@@ -406,3 +406,51 @@
   padding: 40px;
   }
 }
+
+#del-cookie {
+  all: unset;
+  width: fit-content;
+  background: var(--sub-color);
+  border-radius: 16px;
+  font-size: .8rem;
+  margin: 4px 0 0 4px;
+  padding: 0 8px;
+  cursor: pointer;
+  user-select: none;
+  /* 吹き出しのための記述 */
+  position   : relative;   
+}
+
+#del-cookie:hover {
+  opacity: .8;
+}
+
+#del-cookie:active {
+  transform: translateY(2px);
+}
+
+#del-cookie:hover .balloon {
+  display: inline;
+}
+
+.balloon {
+  position: absolute;
+  display: none;
+  padding: 2px;
+  background-color: rgba(255, 255, 255, .8);
+  width: 360px;
+  left: 16px;
+  top: 100%;
+  margin-top: 12px;
+  padding: 0 8px;
+  font-size: .5rem;
+}
+.balloon:after{
+  border-bottom: 12px solid rgba(255, 255, 255, .8);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent; 
+  content: "";
+  position: absolute;
+  top: -12px;
+  left : 5%;
+}

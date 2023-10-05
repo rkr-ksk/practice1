@@ -200,7 +200,7 @@
       setTimeout(function() {
         document.getElementById('modal').style.display = 'block';
       }, 1000);
-      // Cookieを設定
+      // Cookieを設定（有効期限一日）
       setCookie('visited', 'true', 1);
     }
   });
@@ -230,6 +230,25 @@
     }
     return null;
   }
+
+  function deleteCookie(name) {
+    var pastDate = new Date();
+    pastDate.setTime(pastDate.getTime() - 1); // 過去の日時に設定
+
+    var expires = '; expires=' + pastDate.toUTCString();
+    document.cookie = name + '=' + expires + '; path=/';
+  }
+
+  // cookie削除ボタン（試作）
+  const delButton = document.getElementById('del-cookie');
+
+  delButton.addEventListener('click', () => {
+    if (getCookie('visited')) {
+      // Cookieを削除後、ページをリロード
+      deleteCookie('visited');
+      location.reload();
+    }
+  });
 
 
 }
