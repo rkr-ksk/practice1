@@ -291,6 +291,7 @@ input[type="checkbox"]:checked + label {
   padding: 4px 8px;
   border: 2px solid var(--main-color);
   border-radius: 8px;
+  user-select: none;
 }
 
 .label:hover {
